@@ -1,1 +1,68 @@
-<h1> This is root Page</h1>
+<%= render 'layouts/header'%>
+<h2 class="ui center aligned icon header">
+  <i class="comments icon blue"></i>
+  Chat Room
+</h2>
+<div class="ui container">
+	<div class="ui stackable two column grid">
+		<div class="twelve wide column">
+			<div class="ui fluid raised card chatroom">
+				<div class="content">
+					<div class="ui feed">
+					  <div class="event">
+					    <div class="content">
+					      <div class="summary">
+					         <a>User</a> : Message by user
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="extra content">
+					<form class="ui reply form">
+					    <div class="field">
+						     <div class="ui fluid icon input">
+						     	<input type="text" placeholder="Enter a message...">
+						      	<i class="bordered inverted blue paper plane icon"></i>
+						    </div>
+					    </div>
+				  </form>
+				</div>
+			</div>
+		</div>
+		<div class="four wide column">
+			<div class="ui fluid raised card">
+			  <div class="content">
+			    <div class="header">Online Members</div>
+			  </div>
+			  <div class="content">
+			    <div class="ui vertical menu">
+					  <a class=" blue item">
+					    Inbox
+					    <div class="ui blue left pointing label">1</div>
+					  </a>
+					  <a class="item">
+					    Spam
+					    <div class="ui label">51</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					</div>
+			  </div>
+			  <!-- <div class="extra content">
+			    <button class="ui button">Join Project</button>
+			  </div> -->
+			</div>
+		</div>
+	</div>	
+</div>
