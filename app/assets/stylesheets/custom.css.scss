@@ -3,4 +3,5 @@
 .imge{background-image: asset-url('favwechat.png'); background-size: cover; height:80px;width:80px;}
 .chatroom{height:450px;}
 .rightmsg {text-align: left;float:right;margin-top:10px;}
+#messages-content{ overflow: auto;height: 15em;}
 h1{text-align:center;}

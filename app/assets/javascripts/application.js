@@ -17,6 +17,16 @@
 //= require semantic-ui
 //= require_tree .
 
+scroll_down = function(){
+	if($('#messages-content').length > 0){
+		$('#messages-content').scrollTop($('#messages-content')[0].scrollHeight);
+	}
+};
+
 $(document).on('turbolinks:load',function(){
 	$('.ui.dropdown').dropdown();
+  	$("#fadeOutNow").fadeOut(10000);
+  	
+  	scroll_down();
 });
+

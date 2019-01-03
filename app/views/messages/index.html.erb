@@ -1,29 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Messages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Msg</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.msg %></td>
-        <td><%= message.user %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>
+<%= render 'layouts/header'%>
+<h2 class="ui center aligned icon header">
+  <i class="comments icon blue"></i>
+  Chat Room
+</h2>
+<div class="ui container">
+	<div class="ui stackable two column grid">
+		<div class="twelve wide column">
+			<div class="ui fluid raised card chatroom">
+				<div class="content" id="messages-content">
+					<div class="ui feed">
+					  <div class="event">
+					    <div class="content" id="message-container">
+					    	<%= render @messages%>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="extra content">
+					<%= form_for(@message, html:{class: "ui reply form", role: "form"}, url: messages_path, remote: true) do |f|%>
+						<div class="field">
+						     <div class="ui fluid icon input">
+						     	<%= f.text_field :msg, placeholder: "Ender message.."%>
+						      	<%=f.button '<i class="bordered inverted blue paper plane icon"></i>'.html_safe %>
+						    </div>
+					    </div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="four wide column">
+			<div class="ui fluid raised card">
+			  <div class="content">
+			    <div class="header">Online Members</div>
+			  </div>
+			  <div class="content">
+			    <div class="ui vertical menu">
+					  <a class=" blue item">
+					    Inbox
+					    <div class="ui blue left pointing label">1</div>
+					  </a>
+					  <a class="item">
+					    Spam
+					    <div class="ui label">51</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					  <a class="item">
+					    Updates
+					    <div class="ui label">1</div>
+					  </a>
+					</div>
+			  </div>
+			  <!-- <div class="extra content">
+			    <button class="ui button">Join Project</button>
+			  </div> -->
+			</div>
+		</div>
+	</div>	
+</div>

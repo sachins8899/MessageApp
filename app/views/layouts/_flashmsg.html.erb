@@ -1,0 +1,19 @@
+<% flash.each do |key, value| %>
+<div class="ui container" id="fadeOutNow">
+	<div class="ui <%= key%> message">
+		<!-- <i class="close icon"></i> -->
+		<%if key == "error" %>
+			<div class="header">
+				Somthing went wrong, Please check and refill the form.
+			</div>
+			<p>
+				<%=value%>
+			</p>
+		<% else %>
+			<div class="header">
+				<%=value%>
+			</div>
+		<% end %>
+	</div>
+</div>
+<% end %>

@@ -1,0 +1,9 @@
+<% if message.user == current_user %>
+	<div class="summary" style="padding-bottom: 5px; text-align: right;">
+		<%= message.msg%> : <%= link_to "You", "#",class:"ui blue left pointing label"%>
+	</div>
+<%else%>
+	<div class="summary" style="padding-bottom: 5px;">
+		<%= link_to message.user.f_name+" "+message.user.l_name, "#",class:"ui blue right pointing label"%>: <%= message.msg%>
+	</div>
+<% end %>	

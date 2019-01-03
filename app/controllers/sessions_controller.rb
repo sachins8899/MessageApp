@@ -9,10 +9,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = "Wellcome, you have successfully loged in"
-      redirect_to root_path
+      redirect_to messages_path
     else
-      flash.now[:danger] ="Wrong Login Information !!"
-      render 'login'
+      if user
+        flash[:error] =user.errors.full_messages
+      else
+        flash[:error] ="Please enter username and password"
+      end
+      redirect_to login_path
     end
   end
   
@@ -24,11 +28,17 @@ class SessionsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] ="Your Accout was successful created !"
-      redirect_to signup_path
+      redirect_to login_path
     else
-      flash[:success] ="Sorry!! Try again after some time."
+      flash[:error] =@user.errors.full_messages
       redirect_to signup_path
     end
+  end
+  
+  def destroy
+    session[:user_id] = nil
+    flash[:success] ="Logout Successfully !! "
+    redirect_to root_path
   end
   
   
