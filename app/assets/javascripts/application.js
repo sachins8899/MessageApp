@@ -23,10 +23,31 @@ scroll_down = function(){
 	}
 };
 
+message_clean = function(){
+	$('#message_msg').on('keydown',function(e){
+		if(e.keyCode == 13){
+			// $('button').click();
+			e.target.value="";
+		};
+	}
+	);
+};
+
+sendMessage = function(){
+	$('#message_msg').on('keydown',function(e){
+		if(e.keyCode == 13){
+			// $('button').click();
+			// e.target.value="";
+		};
+	}
+	);
+};
+
 $(document).on('turbolinks:load',function(){
 	$('.ui.dropdown').dropdown();
   	$("#fadeOutNow").fadeOut(10000);
-  	
   	scroll_down();
+  	
+  	// message_clean();
 });
 
